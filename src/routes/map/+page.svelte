@@ -1,5 +1,5 @@
 <script>
-    import '../../styles/map-styles.css';
+    // import '../../styles/map-styles.css';
 
     const a = () => {
         // заглушка
