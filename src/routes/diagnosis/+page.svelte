@@ -1,4 +1,5 @@
 <script>
+    import '../../styles/diagnostic-styles.css';
     const cameraStatus = "No signal";
     const wheelsStatus = "No signal";
     const batteryStatus = "No signal";
@@ -13,7 +14,7 @@
     </div>
     <div class="diagnostic-element">
         <div class="diagnostic-text">Камера</div>
-        <div class="bad">{cameraStatus}</div>
+        <div class="bad">{cameraStatus}</div> 
     </div>
     <div class="diagnostic-element">
         <div class="diagnostic-text">Колесики</div>
