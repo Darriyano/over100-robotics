@@ -6,7 +6,6 @@
 <div class="dropdown-menu">
     <div class='h1'>Menu</div>
 
-    
     <div class="marg"><a href="/choose" on:click={closeMenu}>Choosing robots</a></div>
     <nav></nav>
     <div ><a href="/about-project" on:click={closeMenu}>About project</a></div>
@@ -22,7 +21,3 @@
     
     
 </div>
-
-<style>
-    /* Add your styles here */
-</style>
