@@ -1,6 +1,6 @@
 <script>
     import '../../styles/about.css';
-    import lab from './../../img/robot.jpg'
+    import lab from './../../img/laboratory.jpg'
 </script>
 
 <div class='page-container'>

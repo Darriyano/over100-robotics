@@ -1,12 +1,12 @@
 <script>
     import '../../styles/about.css';
-    import lab from './../../img/laboratory.jpg'
+    import rob from './../../img/robot.jpg'
 </script>
 
 <div class='page-container'>
     About project
     <div class="photo-text">
-        <img class="img" src= {lab} alt="robotics laboratory">
+        <img class="img" src= {rob} alt="robotics laboratory">
         <div class="text-about">
             Here will be some text
         </div>
