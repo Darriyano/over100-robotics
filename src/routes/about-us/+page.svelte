@@ -1,3 +1,14 @@
-<script></script>
+<script>
+    import '../../styles/about.css';
+    import lab from './../../img/robot.jpg'
+</script>
 
-<h1>About us</h1>
+<div class='page-container'>
+    About us
+    <div class="photo-text">
+        <img class="img" src= {lab} alt="robotics laboratory">
+        <div class="text-about">
+            Here will be some text
+        </div>
+    </div>
+</div>

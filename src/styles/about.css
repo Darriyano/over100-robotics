@@ -1,0 +1,27 @@
+.page-container {
+    width: 100vw;
+    height: 100vh;
+    font-family: "Oswald", sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    color: #393B43;
+    padding-top: 15px;
+}
+.photo-text{
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+.img{
+    width: 700px;
+    margin-right: 40px;
+}
+.text-about{
+    width: 80%;
+    font-size: 25px;
+}

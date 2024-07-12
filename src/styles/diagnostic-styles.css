@@ -5,7 +5,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     font-size: 40px;
     color: #393B43;
     padding-top: 15px;
