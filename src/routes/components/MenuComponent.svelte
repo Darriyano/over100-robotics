@@ -8,13 +8,13 @@
 
     <div class="marg"><a href="/choose" on:click={closeMenu}>Choosing robots</a></div>
     <nav></nav>
-    <div ><a href="/about-project" on:click={closeMenu}>About project</a></div>
-    <nav></nav>
     <div ><a href="/map" on:click={closeMenu}>Robot's map</a></div>
     <nav></nav>
     <div ><a href="/settings" on:click={closeMenu}>Robot's settings</a></div>
     <nav></nav>
     <div ><a href="/diagnosis" on:click={closeMenu}>Robot's diagnosics</a></div>
+    <nav></nav>
+    <div ><a href="/about-project" on:click={closeMenu}>About project</a></div>
     <nav></nav>
     <div ><a href="/about-us" on:click={closeMenu}>About us</a></div>
     
