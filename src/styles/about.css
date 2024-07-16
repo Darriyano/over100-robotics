@@ -26,3 +26,38 @@
     font-size: 23px;
     font-weight: 300;
 }
+@media(max-width: 1250px){
+    .img{
+        width: 400px;
+    }
+    .text-about{
+        width: 100%;
+        font-size: 18px;
+        font-weight: 200;
+    }
+}
+@media(max-width: 1000px){
+    .img{
+        width: 300px;
+    }
+    .text-about{
+        width: 100%;
+        font-size: 17px;
+        font-weight: 200;
+    }
+}
+@media(max-width: 850px){
+    .photo-text{
+        flex-direction: column;
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+    .img{
+        width: 0px;
+    }
+    .text-about{
+        width: 100%;
+        font-size: 17px;
+        font-weight: 200;
+    }
+}

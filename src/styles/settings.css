@@ -49,11 +49,19 @@
     color: #393B43;
 }
 
-.selected{
+.selectedID{
     font-family: "Oswald", sans-serif;
     margin-top: 11px;
     margin-right: 10px;
     color: #CD6B3C;
+    font-size: 25px;
+    font-weight: 300;
+}
+.selected{
+    font-family: "Oswald", sans-serif;
+    margin-top: 11px;
+    margin-right: 10px;
+    color: #878d8d;
     font-size: 25px;
     font-weight: 300;
 }
