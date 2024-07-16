@@ -1,6 +1,5 @@
 <script>
     import '../styles/signpage.css';
-
 </script>
 
 <div class="page-container">
@@ -13,6 +12,5 @@
     </select>
     <button class='connect-btn'>Connect</button>
     <div class="add-txt">Has no robot?</div>
-    <button class='add-btn'>Add</button>
-
+    <button class='add-btn'><a href="add-new-robot" style="text-decoration: none; color: #FFFFFF">Add</a></button>
 </div>

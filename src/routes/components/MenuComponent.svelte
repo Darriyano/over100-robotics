@@ -17,7 +17,5 @@
     <div ><a href="/about-project" on:click={closeMenu}>About project</a></div>
     <nav></nav>
     <div ><a href="/about-us" on:click={closeMenu}>About us</a></div>
-    
-    
-    
+
 </div>
