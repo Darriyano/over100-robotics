@@ -128,15 +128,15 @@
             <div class="text-font">Select Camera</div>
             <form on:change={handleCameraChange} class="form-styles">
                 <label>
-                    <input type="radio" name="camera" value="Port 1" checked={port === 'Port 1'}>
+                    <input type="radio" class ="variant" name="camera" value="Port 1" checked={port === 'Port 1'}>
                     Port 1
                 </label>
                 <label>
-                    <input type="radio" name="camera" value="Port 2" checked={port === 'Port 2'}>
+                    <input type="radio" class ="variant" name="camera" value="Port 2" checked={port === 'Port 2'}>
                     Port 2
                 </label>
                 <label>
-                    <input type="radio" name="camera" value="Port 3" checked={port === 'Port 3'}>
+                    <input type="radio" class ="variant" name="camera" value="Port 3" checked={port === 'Port 3'}>
                     Port 3
                 </label>
             </form>
@@ -150,15 +150,15 @@
             <div class="text-font">Select Speed</div>
             <form on:change={handleSpeedChange} class="form-styles">
                 <label>
-                    <input type="radio" name="camera" value="1.0" checked={speed === '1.0'}>
+                    <input type="radio" class ="variant" name="camera" value="1.0" checked={speed === '1.0'}>
                     1.0
                 </label>
                 <label>
-                    <input type="radio" name="camera" value="1.5" checked={speed === '1.5'}>
+                    <input type="radio" class ="variant" name="camera" value="1.5" checked={speed === '1.5'}>
                     1.5
                 </label>
                 <label>
-                    <input type="radio" name="camera" value="2.0" checked={speed === '2.0'}>
+                    <input type="radio" class ="variant" name="camera" value="2.0" checked={speed === '2.0'}>
                     2.0
                 </label>
             </form>

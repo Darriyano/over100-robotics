@@ -79,9 +79,9 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.549);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -89,177 +89,54 @@
 }
 
 .text-font {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
     font-family: "Oswald", sans-serif;
     color: #393B43;
-    font-size: 40px;
+    font-size: 30px;
 }
 
 .modal {
     background: white;
-    padding: 20px;
+    height: 15%;
+    min-height: 270px;
+    width: 15%;
+    min-width: 270px;
+    padding: 15px 30px;
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     font-family: "Oswald", sans-serif;
     color: #393B43;
-    font-size: 30px;
+    font-size: 25px;
 }
 
 .form-styles {
     display: flex;
     flex-direction: column;
     margin-bottom: 20px;
+    margin-top: 20px;
 }
-
-.close-button {
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    cursor: pointer;
-}
-
-/* не моё
-
-
-.page-container.blur {
-    filter: blur(5px);
-}
-
-button.setting-element {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    
-    margin-top: 30px;
-    margin-bottom: 15px;
-
-    width: 55%;
-    min-width: 320px;
-
-    height: 5%;
-    min-height: 60px;
-
-    border: 1px solid #878d8d80;
-    border-radius: 20px;
-
-    cursor: pointer;
-
-    background-color: white;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-button.setting-element:hover {
-    background-color: #f1f1f1;
-}
-
-@media (max-width: 850px) {
-    .setting-element{
-        width: 70%;
-    }
-    button.setting-element {
-        width: 70%;
-    }
-    .text{
-        font-size: 20px;
-        margin-top: 15px;
-
-    }
-}
-
-.modal {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background:  rgba(248, 245, 244, 1);
-    box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.2);
-    border-radius: 20px;
-    width: 400px;
-    z-index: 1000;
-}
-
-.modal-header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 20px;
-    position: relative;
-}
-
-.modal-header h2 {
-    font-family: "Oswald", sans-serif;
-    font-size: 30px;
-    font-weight: 300;
-    line-height: 44.46px;
-    text-align: left;
-    text-align: center;
-    margin: 0;
-    color: rgba(57, 59, 67, 1);
-
-
-}
-
-.modal-content {
-    padding: 20px;
-    position: relative;
-}
-
-.modal-body {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.speed-option {
-    display: flex;
-    align-items: center;
-
-    width: 150px;
-    height: 45.64px;
-    top: 360.36px;
-    left: 594.02px;
-    gap: 0px;
-    opacity: 0px;
-
-}
-
-.close-button {
-    position: absolute;
-    right: 20px; 
-    background: none;
-    border: none;
-    font-size: 27px;
-    cursor: pointer;
-    color: rgba(252, 194, 110, 1);
-    font-weight: bold;
-}
-
-.speed-option label {
+.form-styles label {
     font-family: "Oswald", sans-serif;
     font-size: 25px;
     font-weight: 300;
     line-height: 44.46px;
-    text-align: center;
-    margin-left: 30%;
+
+    margin-left: 10px;
     color: rgba(57, 59, 67, 1);
-}
-
-
-.speed-option input[type="radio"] {
+  }
+  .form-styles input[type="radio"] {
     appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
     width: 28px;
     height: 28px;
     background: rgba(217, 217, 217, 1);
     border-radius: 50%;
-    display: inline-block;
-    margin-right: 10px;
-    position: absolute;
-
-}
-
-.speed-option input[type="radio"]:checked::before {
-    content: '';
+    position: relative;
+  }
+  
+  .form-styles input[type="radio"]:checked::before {
+    content: "";
     width: 14px;
     height: 14px;
     background-color: rgba(205, 107, 60, 1);
@@ -268,6 +145,12 @@ button.setting-element:hover {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+  }
+  
+.close-button {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #FCC26E;
 }
-*/
-
