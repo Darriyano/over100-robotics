@@ -13,7 +13,7 @@
 		<option value="SomeID2">SomeID2</option>
 		<option value="SomeID3">SomeID3</option>
 	</select>
-	<button class="connect-btn">Connect</button>
+	<button class="connect-btn"><a href="/diagnosis" style="text-decoration: none; color: #393b43">Connect</a></button>
 	<div class="add-txt">Has no robot?</div>
 	<button class="add-btn"
 		><a href="add-new-robot" style="text-decoration: none; color: #FFFFFF">Add</a></button

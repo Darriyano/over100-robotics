@@ -16,3 +16,4 @@
 	<input id="name-field" class="input-element" value="Robot's name..." />
 	<button class="submission" on:click={() => checkSubmission()}> Submit </button>
 </div>
+
