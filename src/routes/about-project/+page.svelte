@@ -2,12 +2,10 @@
 	import '../../styles/about.css';
 	import rob from './../../img/robot.jpg';
 </script>
+
 <head>
 	<title>About project</title>
-	<meta
-		name="description"
-		content="The page with info about autonomus mobile platform"
-	/>
+	<meta name="description" content="The page with info about autonomus mobile platform" />
 </head>
 <div class="page-container">
 	About project
