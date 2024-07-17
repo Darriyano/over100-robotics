@@ -5,11 +5,14 @@
         // заглушка
     };
 </script>
-
+<head>
+	<title>Map</title>
+	<meta name="description" content="The page with the robot control by joistic" />
+</head>
 <div class="page-container">
-    Карта
+    Map
     <div class="map-screen">
-        <div class="vremeno">Карта подгружается...</div>
+        <div class="vremeno">The map is loading...</div>
     </div>
     <div class="console">
         <div class="map-buttons">

@@ -5,23 +5,26 @@
     const batteryStatus = "No signal";
     const current = ""
 </script>
-
+<head>
+	<title>Robot diagnostics</title>
+	<meta name="description" content="The page with the diagnostic of robot's Camera, Wheels and Battery charge" />
+</head>
 <div class='page-container'>
-    Диагностика робота
+    Robot diagnostics
     <div class="diagnostic-id">
-        <div class="diagnostic-text">ID робота:</div>
+        <div class="diagnostic-text">ID of the robot:</div>
         <div class="robot-ID">{current}</div>
     </div>
     <div class="diagnostic-element">
-        <div class="diagnostic-text">Камера</div>
+        <div class="diagnostic-text">Camera</div>
         <div class="bad">{cameraStatus}</div> 
     </div>
     <div class="diagnostic-element">
-        <div class="diagnostic-text">Колесики</div>
+        <div class="diagnostic-text">Wheels</div>
         <div class="bad">{wheelsStatus}</div>
     </div>
     <div class="diagnostic-element">
-        <div class="diagnostic-text">Заряд батареи</div>
+        <div class="diagnostic-text">Battery charge</div>
         <div class="bad">{batteryStatus}</div>
     </div>
 </div>

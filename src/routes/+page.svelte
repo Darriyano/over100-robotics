@@ -1,7 +1,10 @@
 <script>
     import '../styles/signpage.css';
 </script>
-
+<head>
+	<title>Login page</title>
+	<meta name="description" content="The page with the conection to the robot" />
+</head>
 <div class="page-container">
     Connect to the robot
     <select class="robotID" id="robotID" name="robotID"

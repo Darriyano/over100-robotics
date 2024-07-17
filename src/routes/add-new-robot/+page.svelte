@@ -6,13 +6,16 @@
         goto('/');
     }
 </script>
-
+<head>
+	<title>Add new robot</title>
+	<meta name="description" content="The page with add new robot" />
+</head>
 <div class='page-container'>
     Add new robot
     <div class="all-elements">
         <input id="name-field" class="element" value="Robot's name..."/>
         <button class="submission" on:click={() => checkSubmission()}>
-            Submit robot!
+            Submit
         </button>
     </div>
 </div>

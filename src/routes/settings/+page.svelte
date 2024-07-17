@@ -21,7 +21,10 @@
         closeCameraModal();
     }
 </script>
-
+<head>
+	<title>Robot's settings</title>
+	<meta name="description" content="The page with the Robot's settings" />
+</head>
 <div class="page-container {isCameraModalOpen ? 'blur' : ''}">
     Robot's settings
 
