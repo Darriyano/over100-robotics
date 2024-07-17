@@ -46,6 +46,8 @@
 	width: 9%;
 	min-width: 200px;
 	min-height: 50px;
+
+	cursor: pointer;
 }
 
 .add-txt {
@@ -66,4 +68,6 @@
 	width: 9%;
 	min-width: 100px;
 	min-height: 30px;
+
+	cursor: pointer;
 }

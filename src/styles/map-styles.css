@@ -49,6 +49,8 @@
 	height: 70px;
 	margin-right: 5px;
 	margin-left: 5px;
+
+	cursor: pointer;
 }
 .map-picture {
 	padding: 7%;

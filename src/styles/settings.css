@@ -31,6 +31,8 @@
 
 	border: 1px solid #878d8d80;
 	border-radius: 20px;
+
+	cursor: pointer;
 }
 
 .left {
