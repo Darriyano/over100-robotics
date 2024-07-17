@@ -2,7 +2,7 @@
     import '../../styles/settings.css';
 
     const id = '000';
-    let speed = 1.0;
+    let speed = '1.0';
     let port = 'Port 1';
 
     let isCameraModalOpen: boolean = false;
@@ -20,12 +20,28 @@
         port = target.value;
         closeCameraModal();
     }
+    let isSpeedModalOpen: boolean = false;
+
+    function openSpeedModal() {
+        isSpeedModalOpen = true;
+    }
+
+    function closeSpeedModal() {
+        isSpeedModalOpen = false;
+    }
+
+    function handleSpeedChange(event: Event) {
+        const target2 = event.target as HTMLInputElement;
+        speed = target2.value;
+        closeSpeedModal();
+    }
 </script>
 <head>
 	<title>Robot's settings</title>
 	<meta name="description" content="The page with the Robot's settings" />
 </head>
-<div class="page-container {isCameraModalOpen ? 'blur' : ''}">
+
+<div class="page-container {isCameraModalOpen||isSpeedModalOpen ? 'blur' : ''}">
     Robot's settings
 
     <button class="setting-element">
@@ -85,7 +101,7 @@
         </div>
         <div class="selected">{port}</div>
     </button>
-    <button class="setting-element">
+    <button class="setting-element" on:click={openSpeedModal}>
         <div class="left">
             <svg
                     class="svg"
@@ -122,6 +138,28 @@
                 <label>
                     <input type="radio" name="camera" value="Port 3" checked={port === 'Port 3'}>
                     Port 3
+                </label>
+            </form>
+        </div>
+    </div>
+{/if}
+{#if isSpeedModalOpen}
+    <div class="modal-overlay">
+        <div class="modal">
+            <button class="close-button" on:click={closeSpeedModal}>X</button>
+            <div class="text-font">Select Speed</div>
+            <form on:change={handleSpeedChange} class="form-styles">
+                <label>
+                    <input type="radio" name="camera" value="1.0" checked={speed === '1.0'}>
+                    1.0
+                </label>
+                <label>
+                    <input type="radio" name="camera" value="1.5" checked={speed === '1.5'}>
+                    1.5
+                </label>
+                <label>
+                    <input type="radio" name="camera" value="2.0" checked={speed === '2.0'}>
+                    2.0
                 </label>
             </form>
         </div>
