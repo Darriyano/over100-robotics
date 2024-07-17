@@ -12,10 +12,8 @@
 </head>
 <div class='page-container'>
     Add new robot
-    <div class="all-elements">
-        <input id="name-field" class="element" value="Robot's name..."/>
-        <button class="submission" on:click={() => checkSubmission()}>
-            Submit
-        </button>
-    </div>
+    <input id="name-field" class="input-element" value="Robot's name..."/>
+    <button class="submission" on:click={() => checkSubmission()}>
+        Submit
+    </button>
 </div>
