@@ -1,34 +1,56 @@
-<script>
-	import '../../styles/diagnostic-styles.css';
-	const cameraStatus = 'No signal';
-	const wheelsStatus = 'No signal';
-	const batteryStatus = 'No signal';
-	const current = '';
+<script lang="ts">
+    import '../../styles/diagnostic-styles.css';
+    import {onMount} from "svelte";
+    import {fetchRobotDataByName} from "../../../api";
+
+    let cameraStatus: string = 'Connected';
+    let wheelsStatus: string = 'No signal';
+    let batteryStatus: string = 'No signal';
+
+    let robot: any = {};
+
+    onMount(async () => {
+        try {
+            const roboName: string | null = localStorage.getItem('current');
+            robot = await fetchRobotDataByName(roboName);
+            if (robot.camera === "port1" || robot.camera === "port2") {
+                cameraStatus = 'disconnected';
+            }
+            if (robot.wheels) {
+                wheelsStatus = 'OK';
+            }
+            batteryStatus = robot.battery.toString();
+
+        } catch (error) {
+            console.error('Failed to fetch robot data:', error);
+        }
+    });
+
 </script>
 
 <head>
-	<title>Robot diagnostics</title>
-	<meta
-		name="description"
-		content="The page with the diagnostic of robot's Camera, Wheels and Battery charge"
-	/>
+    <title>Robot diagnostics</title>
+    <meta
+            name="description"
+            content="The page with the diagnostic of robot's Camera, Wheels and Battery charge"
+    />
 </head>
 <div class="page-container">
-	Robot diagnostics
-	<div class="diagnostic-id">
-		<div class="diagnostic-text">ID of the robot:</div>
-		<div class="robot-ID">{current}</div>
-	</div>
-	<div class="diagnostic-element">
-		<div class="diagnostic-text">Camera</div>
-		<div class="bad">{cameraStatus}</div>
-	</div>
-	<div class="diagnostic-element">
-		<div class="diagnostic-text">Wheels</div>
-		<div class="bad">{wheelsStatus}</div>
-	</div>
-	<div class="diagnostic-element">
-		<div class="diagnostic-text">Battery charge</div>
-		<div class="bad">{batteryStatus}</div>
-	</div>
+    Robot diagnostics
+    <div class="diagnostic-id">
+        <div class="diagnostic-text">ID of the robot:</div>
+        <div class="robot-ID">{robot.id}</div>
+    </div>
+    <div class="diagnostic-element">
+        <div class="diagnostic-text">Camera</div>
+        <div class="bad">{cameraStatus}</div>
+    </div>
+    <div class="diagnostic-element">
+        <div class="diagnostic-text">Wheels</div>
+        <div class="bad">{wheelsStatus}</div>
+    </div>
+    <div class="diagnostic-element">
+        <div class="diagnostic-text">Battery charge</div>
+        <div class="bad">{batteryStatus}</div>
+    </div>
 </div>
