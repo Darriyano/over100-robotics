@@ -1,10 +1,10 @@
 interface RobotData {
     id: number;
     name: string;
-    camera: string;
+    camera: boolean;
     wheels: boolean;
     battery: number;
-    speed: string;
+    speed: number;
 }
 
 interface Names {
@@ -19,15 +19,6 @@ export async function fetchRobotData(): Promise<Names[]> {
         return data;
     }
     throw new Error("Response error in fetchRobotData");
-}
-
-/* For connection to the current account by robot's name*/
-export async function sendRobotByName(name: string): Promise<boolean> {
-    const response = await fetch(`/endpoint2/${name}`);
-    if (!(response.status === 200)) {
-        throw new Error("Response error in sendRobotByName");
-    }
-    return true;
 }
 
 /* For adding robot by inputted name */

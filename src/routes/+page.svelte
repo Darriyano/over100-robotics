@@ -1,8 +1,7 @@
 <script lang="ts">
     import '../styles/signpage.css';
     import {onMount} from 'svelte';
-    import {fetchRobotData, sendRobotByName} from '../../api';
-    import type {RobotData} from '../../api';
+    import {fetchRobotData} from '../../api';
     import type {Names} from '../../api';
     import {goto} from "$app/navigation";
 
@@ -21,22 +20,13 @@
         selectedRobotName = event.target.value;
     }
 
-    async function sendData() {
+    function sendData() {
         if (selectedRobotName === null) {
             console.error('No robot selected');
             return;
         }
-
-        try {
-            const res = await sendRobotByName(selectedRobotName);
-            if (res) {
-                /* Storing current session name*/
-                localStorage.setItem('current', selectedRobotName);
-            }
-            await goto('/map')
-        } catch (error) {
-            console.error('Failed to fetch robot data by ID:', error);
-        }
+        localStorage.setItem('current', selectedRobotName);
+        goto('/map')
     }
 
 </script>
