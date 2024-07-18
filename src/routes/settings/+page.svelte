@@ -1,7 +1,8 @@
 <script lang="ts">
     import '../../styles/settings.css';
     import {onMount} from "svelte";
-    import {addRobot, fetchCameraChanges, fetchRobotDataByName, fetchSpeedChanges} from "../../../api";
+    import {fetchCameraChanges, fetchDisconnect, fetchRobotDataByName, fetchSpeedChanges} from "../../../api";
+    import {goto} from "$app/navigation";
 
     const id = '000';
     let speed = '1';
@@ -64,6 +65,14 @@
         }
         closeSpeedModal();
     }
+
+    async function exiting() {
+        const roboName: string | null = localStorage.getItem('current');
+        await fetchDisconnect(roboName);
+        localStorage.removeItem('current');
+        await goto('/');
+    }
+
 </script>
 
 <head>
@@ -74,7 +83,7 @@
 <div class="page-container {isCameraModalOpen || isSpeedModalOpen ? 'blur' : ''}">
     Robot's settings
 
-    <button class="setting-element">
+    <button class="setting-element" on:click={() => exiting()}>
         <div class="left">
             <svg
                     class="svg"

@@ -21,9 +21,11 @@ interface SpeedChanges {
     speed: number;
 }
 
+const apiUrl = import.meta.env.VITE_API_URL;
+
 /* For showing all robot names at the beginning page */
 export async function fetchRobotData(): Promise<Names[]> {
-    const response = await fetch(`/endpoint1`);
+    const response = await fetch('${apiUrl}/');
     if (response.status === 200) {
         let data: Names[] = await response.json();
         return data;
@@ -33,7 +35,7 @@ export async function fetchRobotData(): Promise<Names[]> {
 
 /* For adding robot by inputted name */
 export async function addRobot(name: string): Promise<void> {
-    const response = await fetch('/api/add-robot', {
+    const response = await fetch('${apiUrl}/', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -41,14 +43,14 @@ export async function addRobot(name: string): Promise<void> {
         body: JSON.stringify({name})
     });
 
-    if (!response.ok) {
-        throw new Error('Failed to submit the robot name or name already exists');
+    if (response.status === 409) {
+        throw new Error('Name already exists');
     }
 }
 
 /* For showing all robot names at the beginning page*/
 export async function fetchRobotsData(): Promise<RobotData[]> {
-    const response = await fetch(`/endpoint1`);
+    const response = await fetch('${apiUrl}/');
     if (response.status === 200) {
         let data: RobotData[] = await response.json();
         return data;
@@ -58,7 +60,7 @@ export async function fetchRobotsData(): Promise<RobotData[]> {
 
 /* For showing info for current robot by name */
 export async function fetchRobotDataByName(name: string | null): Promise<RobotData> {
-    const response = await fetch(`/endpoint1`);
+    const response = await fetch('${apiUrl}/');
     if (response.status === 200) {
         let data: RobotData = await response.json();
         return data;
@@ -66,9 +68,10 @@ export async function fetchRobotDataByName(name: string | null): Promise<RobotDa
     throw new Error("Response error in fetchRobotDataByName");
 }
 
-export async function fetchDisconnect(name: string): Promise<void> {
-    const response = await fetch('/api/add-robot', {
-        method: 'POST',
+/* For disconnecting from robot and deleting it */
+export async function fetchDisconnect(name: string | null): Promise<void> {
+    const response = await fetch('${apiUrl}/', {
+        method: 'DELETE',
         headers: {
             'Content-Type': 'application/json'
         },
@@ -79,12 +82,13 @@ export async function fetchDisconnect(name: string): Promise<void> {
     }
 }
 
+/* For changing parameters of camera */
 export async function fetchCameraChanges(name: string | null, camera: string): Promise<void> {
     const camChange: CameraChanges = {
         name,
         camera
     }
-    const response = await fetch('/api/add-robot', {
+    const response = await fetch('${apiUrl}/', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -96,12 +100,13 @@ export async function fetchCameraChanges(name: string | null, camera: string): P
     }
 }
 
+/* For changing parameters of speed */
 export async function fetchSpeedChanges(name: string | null, speed: number): Promise<void> {
     const spChange: SpeedChanges = {
         name,
         speed
     }
-    const response = await fetch('/api/add-robot', {
+    const response = await fetch('${apiUrl}/', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
