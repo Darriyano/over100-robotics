@@ -15,7 +15,7 @@ interface Names {
 export async function fetchRobotData(): Promise<Names[]> {
     const response = await fetch(`/endpoint1`);
     if (response.status === 200) {
-        let data: RobotData[] = await response.json();
+        let data: Names[] = await response.json();
         return data;
     }
     throw new Error("Response error in fetchRobotData");
@@ -34,6 +34,16 @@ export async function addRobot(name: string): Promise<void> {
     if (!response.ok) {
         throw new Error('Failed to submit the robot name or name already exists');
     }
+}
+
+/* For showing all robot names at the beginning page*/
+export async function fetchRobotsData(): Promise<RobotData[]> {
+    const response = await fetch(`/endpoint1`);
+    if (response.status === 200) {
+        let data: RobotData[] = await response.json();
+        return data;
+    }
+    throw new Error("Response error in fetchRobotData");
 }
 
 
