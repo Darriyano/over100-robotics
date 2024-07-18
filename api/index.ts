@@ -96,7 +96,7 @@ export async function fetchCameraChanges(name: string | null, camera: string): P
         body: JSON.stringify(camChange)
     });
     if (!response.ok) {
-        throw new Error('Response error in fetchDisconnect');
+        throw new Error('Response error in fetchCameraChanges');
     }
 }
 
@@ -114,7 +114,7 @@ export async function fetchSpeedChanges(name: string | null, speed: number): Pro
         body: JSON.stringify(spChange)
     });
     if (!response.ok) {
-        throw new Error('Response error in fetchDisconnect');
+        throw new Error('Response error in fetchSpeedChanges');
     }
 }
 
