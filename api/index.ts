@@ -12,12 +12,12 @@ interface Names {
 }
 
 interface CameraChanges {
-    name: string;
+    name: string | null;
     camera: string;
 }
 
 interface SpeedChanges {
-    name: string;
+    name: string | null;
     speed: number;
 }
 
@@ -79,7 +79,7 @@ export async function fetchDisconnect(name: string): Promise<void> {
     }
 }
 
-export async function fetchCameraChanges(name: string, camera: string): Promise<void> {
+export async function fetchCameraChanges(name: string | null, camera: string): Promise<void> {
     const camChange: CameraChanges = {
         name,
         camera
@@ -96,7 +96,7 @@ export async function fetchCameraChanges(name: string, camera: string): Promise<
     }
 }
 
-export async function fetchSpeedChanges(name: string, speed: number): Promise<void> {
+export async function fetchSpeedChanges(name: string | null, speed: number): Promise<void> {
     const spChange: SpeedChanges = {
         name,
         speed
