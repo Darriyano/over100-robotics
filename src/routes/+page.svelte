@@ -4,9 +4,11 @@
     import {fetchRobotData} from "../api";
     import type {Names} from "../api";
     import {goto} from "$app/navigation";
+    import {showMenu} from "../../src/stores";
+
 
     let robots: Names[] = [];
-    let selectedRobotName: string | null = null;
+    let selectedRobotName: string = '';
 
     onMount(async () => {
         try {
@@ -21,12 +23,13 @@
     }
 
     function sendData() {
-        if (selectedRobotName === null) {
-            console.error('No robot selected');
-            return;
+        if (selectedRobotName === '' || selectedRobotName === 'Choose the robot' || selectedRobotName === 'No robot selected') {
+            alert('No robot selected');
+        } else {
+            showMenu.set(true);
+            localStorage.setItem('current', selectedRobotName);
+            goto('/map')
         }
-        localStorage.setItem('current', selectedRobotName);
-        goto('/map')
     }
 
 </script>
@@ -39,12 +42,13 @@
 <div class="page-container">
     Connect to the robot
     <select class="robotID" id="robotID" name="robotID" required on:change={handleSelectChange}>
+        <option value='Choose the robot'>Choose the robot</option>
         {#each robots as robot}
             <option value={robot.name}>{robot.name}</option>
         {/each}
     </select>
-    <button class="connect-btn">
-        <a href="/diagnosis" style="text-decoration: none; color: #393b43" on:click={sendData}>Connect</a>
+    <button class="connect-btn" on:click={sendData}>Connect
+        <!--        <a href="/diagnosis" style="text-decoration: none; color: #393b43" >Connect</a>-->
     </button>
     <div class="add-txt">Has no robot?</div>
     <button class="add-btn">

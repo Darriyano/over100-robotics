@@ -10,7 +10,7 @@
             await addRobot(robotName);
             await goto('/');
         } catch (error) {
-            console.error(error);
+            alert(error);
         }
     }
 </script>

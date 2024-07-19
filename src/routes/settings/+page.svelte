@@ -3,8 +3,9 @@
     import {onMount} from "svelte";
     import {fetchCameraChanges, fetchDisconnect, fetchRobotDataByName, fetchSpeedChanges} from "../../api";
     import {goto} from "$app/navigation";
+    import {showMenu} from "../../stores";
 
-    const id = '000';
+    let id = '000';
     let speed = '1';
     let port = 'Port 1';
 
@@ -14,8 +15,9 @@
 
     onMount(async () => {
         try {
-            const roboName: string | null = localStorage.getItem('current');
+            const roboName = localStorage.getItem('current');
             robot = await fetchRobotDataByName(roboName);
+            id = robot.id;
             port = robot.camera;
             speed = robot.speed.toString();
 
@@ -36,7 +38,10 @@
         const target = event.target as HTMLInputElement;
         port = target.value;
         try {
-            const roboName: string | null = localStorage.getItem('current');
+            let roboName = localStorage.getItem('current');
+            if (!roboName) {
+                roboName = '';
+            }
             await fetchCameraChanges(roboName, port);
         } catch (e) {
             console.log(e);
@@ -58,7 +63,10 @@
         const target2 = event.target as HTMLInputElement;
         speed = target2.value;
         try {
-            const roboName: string | null = localStorage.getItem('current');
+            let roboName = localStorage.getItem('current');
+            if (!roboName) {
+                roboName = '';
+            }
             await fetchSpeedChanges(roboName, Number(speed));
         } catch (e) {
             console.log(e);
@@ -70,6 +78,7 @@
         const roboName: string | null = localStorage.getItem('current');
         await fetchDisconnect(roboName);
         localStorage.removeItem('current');
+        showMenu.set(false);
         await goto('/');
     }
 
