@@ -1,8 +1,8 @@
 <script lang="ts">
     import '../styles/signpage.css';
     import {onMount} from 'svelte';
-    import {fetchRobotData} from '../../api';
-    import type {Names} from '../../api';
+    import {fetchRobotData} from "../api";
+    import type {Names} from "../api";
     import {goto} from "$app/navigation";
 
     let robots: Names[] = [];

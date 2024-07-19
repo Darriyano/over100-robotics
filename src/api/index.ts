@@ -21,11 +21,9 @@ interface SpeedChanges {
     speed: number;
 }
 
-const apiUrl = import.meta.env.VITE_API_URL;
-
 /* For showing all robot names at the beginning page */
 export async function fetchRobotData(): Promise<Names[]> {
-    const response = await fetch('${apiUrl}/');
+    const response = await fetch(`/api/get_robots_name`);
     if (response.status === 200) {
         let data: Names[] = await response.json();
         return data;
@@ -35,7 +33,7 @@ export async function fetchRobotData(): Promise<Names[]> {
 
 /* For adding robot by inputted name */
 export async function addRobot(name: string): Promise<void> {
-    const response = await fetch('${apiUrl}/', {
+    const response = await fetch(`/api/robots/`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -48,9 +46,8 @@ export async function addRobot(name: string): Promise<void> {
     }
 }
 
-/* For showing all robot names at the beginning page*/
 export async function fetchRobotsData(): Promise<RobotData[]> {
-    const response = await fetch('${apiUrl}/');
+    const response = await fetch(`/api/get_robots`);
     if (response.status === 200) {
         let data: RobotData[] = await response.json();
         return data;
@@ -60,7 +57,7 @@ export async function fetchRobotsData(): Promise<RobotData[]> {
 
 /* For showing info for current robot by name */
 export async function fetchRobotDataByName(name: string | null): Promise<RobotData> {
-    const response = await fetch('${apiUrl}/');
+    const response = await fetch(`/api/robot/${name}`);
     if (response.status === 200) {
         let data: RobotData = await response.json();
         return data;
@@ -70,7 +67,7 @@ export async function fetchRobotDataByName(name: string | null): Promise<RobotDa
 
 /* For disconnecting from robot and deleting it */
 export async function fetchDisconnect(name: string | null): Promise<void> {
-    const response = await fetch('${apiUrl}/', {
+    const response = await fetch(`/api/robots/${name}`, {
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json'
@@ -88,8 +85,8 @@ export async function fetchCameraChanges(name: string | null, camera: string): P
         name,
         camera
     }
-    const response = await fetch('${apiUrl}/', {
-        method: 'POST',
+    const response = await fetch('/api/robots/camera', {
+        method: 'PUT',
         headers: {
             'Content-Type': 'application/json'
         },
@@ -106,8 +103,8 @@ export async function fetchSpeedChanges(name: string | null, speed: number): Pro
         name,
         speed
     }
-    const response = await fetch('${apiUrl}/', {
-        method: 'POST',
+    const response = await fetch('/api/robots/speed', {
+        method: 'PUT',
         headers: {
             'Content-Type': 'application/json'
         },

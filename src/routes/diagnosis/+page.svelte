@@ -1,7 +1,7 @@
 <script lang="ts">
     import '../../styles/diagnostic-styles.css';
     import {onMount} from "svelte";
-    import {fetchRobotDataByName} from "../../../api";
+    import {fetchRobotDataByName} from "../../api";
 
     let cameraStatus: string = 'Connected';
     let wheelsStatus: string = 'No signal';

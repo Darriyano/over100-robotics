@@ -1,7 +1,7 @@
 <script lang="ts">
     import '../../styles/add-new-styles.css';
     import {goto} from '$app/navigation';
-    import {addRobot} from "../../../api";
+    import {addRobot} from "../../api";
 
     let robotName: string = "Robot's name...";
 

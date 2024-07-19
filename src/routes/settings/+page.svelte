@@ -1,7 +1,7 @@
 <script lang="ts">
     import '../../styles/settings.css';
     import {onMount} from "svelte";
-    import {fetchCameraChanges, fetchDisconnect, fetchRobotDataByName, fetchSpeedChanges} from "../../../api";
+    import {fetchCameraChanges, fetchDisconnect, fetchRobotDataByName, fetchSpeedChanges} from "../../api";
     import {goto} from "$app/navigation";
 
     const id = '000';
