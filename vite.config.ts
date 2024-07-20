@@ -11,7 +11,7 @@ export default defineConfig({
 	server: {
 		proxy: {
 			'/api': {
-				target: process.env.VITE_API_URL, // Backend API URL
+				target: "https://over100robotics.cupsoft.ru", // Backend API URL
 				changeOrigin: true,
 				rewrite: (path) => path.replace(/^\/api/, '')
 			}
