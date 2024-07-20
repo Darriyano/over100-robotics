@@ -51,6 +51,6 @@
     </div>
     <div class="diagnostic-element">
         <div class="diagnostic-text">Battery charge</div>
-        <div class="bad">{batteryStatus}</div>
+        <div class="bad">{batteryStatus}%</div>
     </div>
 </div>
