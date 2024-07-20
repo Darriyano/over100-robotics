@@ -1,48 +1,49 @@
 <script>
-    import {writable} from 'svelte/store';
-    import MenuComponent from './components/MenuComponent.svelte';
-    import {onMount} from "svelte";
-    import {isOpen, showMenu} from '../../src/stores';
-    import {page} from '$app/stores';
+	import MenuComponent from './components/MenuComponent.svelte';
+	import { onMount } from 'svelte';
+	import { isOpen, showMenu } from '../../src/stores';
+	import { page } from '$app/stores';
 
+	const toggleMenu = () => {
+		isOpen.update((n) => !n);
+	};
 
-    const toggleMenu = () => {
-        isOpen.update((n) => !n);
-    };
+	const closeMenu = () => {
+		isOpen.set(false);
+	};
 
-    const closeMenu = () => {
-        isOpen.set(false);
-    };
+	$: currentPage = $page.url.pathname;
 
-    $: currentPage = $page.url.pathname;
-
-    onMount(() => {
-        if (currentPage === '/' || currentPage === '/add-new-robot') {
-            showMenu.set(false);
-        } else {
-            showMenu.set(true);
-        }
-    });
-
+	onMount(() => {
+		if (currentPage === '/' || currentPage === '/add-new-robot') {
+			showMenu.set(false);
+		} else {
+			showMenu.set(true);
+		}
+	});
 </script>
 
-
 <div class="layout">
-    {#if $showMenu}
-        <button class="menu-btn" on:click={toggleMenu}>
-            <svg width="42" height="28" viewBox="0 0 42 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path
-                        d="M2.33333 28H39.6667C40.95 28 42 26.95 42 25.6667C42 24.3833 40.95 23.3333 39.6667 23.3333H2.33333C1.05 23.3333 0 24.3833 0 25.6667C0 26.95 1.05 28 2.33333 28ZM2.33333 16.3333H39.6667C40.95 16.3333 42 15.2833 42 14C42 12.7167 40.95 11.6667 39.6667 11.6667H2.33333C1.05 11.6667 0 12.7167 0 14C0 15.2833 1.05 16.3333 2.33333 16.3333ZM0 2.33333C0 3.61667 1.05 4.66667 2.33333 4.66667H39.6667C40.95 4.66667 42 3.61667 42 2.33333C42 1.05 40.95 0 39.6667 0H2.33333C1.05 0 0 1.05 0 2.33333Z"
-                        fill="#666666"
-                />
-            </svg>
-        </button>
-    {/if}
+	{#if $showMenu}
+		<button class="menu-btn" on:click={toggleMenu}>
+			<svg
+				width="42"
+				height="28"
+				viewBox="0 0 42 28"
+				fill="none"
+				xmlns="http://www.w3.org/2000/svg"
+			>
+				<path
+					d="M2.33333 28H39.6667C40.95 28 42 26.95 42 25.6667C42 24.3833 40.95 23.3333 39.6667 23.3333H2.33333C1.05 23.3333 0 24.3833 0 25.6667C0 26.95 1.05 28 2.33333 28ZM2.33333 16.3333H39.6667C40.95 16.3333 42 15.2833 42 14C42 12.7167 40.95 11.6667 39.6667 11.6667H2.33333C1.05 11.6667 0 12.7167 0 14C0 15.2833 1.05 16.3333 2.33333 16.3333ZM0 2.33333C0 3.61667 1.05 4.66667 2.33333 4.66667H39.6667C40.95 4.66667 42 3.61667 42 2.33333C42 1.05 40.95 0 39.6667 0H2.33333C1.05 0 0 1.05 0 2.33333Z"
+					fill="#666666"
+				/>
+			</svg>
+		</button>
+	{/if}
 
+	{#if $isOpen}
+		<MenuComponent {closeMenu} />
+	{/if}
 
-    {#if $isOpen}
-        <MenuComponent {closeMenu}/>
-    {/if}
-
-    <slot/>
+	<slot />
 </div>

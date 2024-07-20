@@ -1,6 +1,14 @@
 <script lang="ts">
 	import '../../styles/menu.css';
+	import { showMenu } from '../../stores';
+
 	export let closeMenu: () => void;
+
+	function logout() {
+		closeMenu();
+		showMenu.set(false);
+		localStorage.removeItem('current');
+	}
 </script>
 
 <div class="dropdown-menu">
@@ -17,4 +25,6 @@
 	<div><a href="/about-project" on:click={closeMenu}>About project</a></div>
 	<nav></nav>
 	<div><a href="/about-us" on:click={closeMenu}>About us</a></div>
+	<nav></nav>
+	<div><a href="/" on:click={logout}>Log out</a></div>
 </div>
