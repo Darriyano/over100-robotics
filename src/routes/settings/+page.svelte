@@ -11,6 +11,8 @@
 
     let isCameraModalOpen: boolean = false;
 
+    const options = Array.from({length: 100}, (_, i) => i + 1);
+
     let robot: any = {};
 
     onMount(async () => {
@@ -74,6 +76,11 @@
         closeSpeedModal();
     }
 
+    function addingRobot() {
+        localStorage.removeItem('current');
+        goto('/add-new-robot');
+    }
+
     async function exiting() {
         const roboName: string | null = localStorage.getItem('current');
         await fetchDisconnect(roboName);
@@ -112,7 +119,7 @@
         <div class="selectedID">ID: {id}</div>
     </button>
 
-    <button class="setting-element">
+    <button class="setting-element" on:click={addingRobot}>
         <div class="left">
             <svg
                     class="svg"
@@ -130,6 +137,7 @@
             <div class="text">Add a robot</div>
         </div>
     </button>
+
     <button class="setting-element" on:click={openCameraModal}>
         <div class="left">
             <svg
@@ -215,18 +223,11 @@
             <button class="close-button" on:click={closeSpeedModal}>X</button>
             <div class="text-font">Select Speed</div>
             <form on:change={handleSpeedChange} class="form-styles">
-                <label>
-                    <input type="radio" class="variant" name="camera" value="1.0" checked={speed === '1.0'}/>
-                    1.0
-                </label>
-                <label>
-                    <input type="radio" class="variant" name="camera" value="1.5" checked={speed === '1.5'}/>
-                    1.5
-                </label>
-                <label>
-                    <input type="radio" class="variant" name="camera" value="2.0" checked={speed === '2.0'}/>
-                    2.0
-                </label>
+                <select bind:value={speed} class="variant-input">
+                    {#each options as option}
+                        <option value={option}>{option}</option>
+                    {/each}
+                </select>
             </form>
         </div>
     </div>

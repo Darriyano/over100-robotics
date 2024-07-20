@@ -146,6 +146,25 @@
 	transform: translate(-50%, -50%);
 }
 
+.variant-input {
+	font-family: 'Oswald', sans-serif;
+	border-radius: 20px;
+	border: none;
+	background-color: #cfcfd1;
+	color: #95969a;
+	font-size: 30px;
+	margin-top: 5%;
+	margin-bottom: 5%;
+	height: 8%;
+	width: 30%;
+	min-width: 290px;
+	min-height: 50px;
+	padding-left: 10px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	font-weight: lighter;
+}
+
 .close-button {
 	background: none;
 	border: none;
