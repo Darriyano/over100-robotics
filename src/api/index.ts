@@ -23,7 +23,7 @@ interface SpeedChanges {
 
 /* For showing all robot names at the beginning page */
 export async function fetchRobotData(): Promise<Names[]> {
-	const response = await fetch(`/api/get_robots_name`);
+	const response = await fetch(`https://over100robotics.cupsoft.ru/get_robots_name`);
 	if (response.status === 200) {
 		const data: Names[] = await response.json();
 		return data;
@@ -33,7 +33,7 @@ export async function fetchRobotData(): Promise<Names[]> {
 
 /* For adding robot by inputted name */
 export async function addRobot(name: string): Promise<void> {
-	const response = await fetch(`/api/robots/`, {
+	const response = await fetch(`https://over100robotics.cupsoft.ru/robots/`, {
 		method: 'POST',
 		headers: {
 			'Content-Type': 'application/json'
@@ -47,7 +47,7 @@ export async function addRobot(name: string): Promise<void> {
 }
 
 export async function fetchRobotsData(): Promise<RobotData[]> {
-	const response = await fetch(`/api/get_robots`);
+	const response = await fetch(`https://over100robotics.cupsoft.ru/get_robots`);
 	if (response.status === 200) {
 		const data: RobotData[] = await response.json();
 		return data;
@@ -57,7 +57,7 @@ export async function fetchRobotsData(): Promise<RobotData[]> {
 
 /* For showing info for current robot by name */
 export async function fetchRobotDataByName(name: string | null): Promise<RobotData> {
-	const response = await fetch(`/api/robot/${name}`);
+	const response = await fetch(`https://over100robotics.cupsoft.ru/robot/${name}`);
 	if (response.status === 200) {
 		const data: RobotData = await response.json();
 		return data;
@@ -67,7 +67,7 @@ export async function fetchRobotDataByName(name: string | null): Promise<RobotDa
 
 /* For disconnecting from robot and deleting it */
 export async function fetchDisconnect(name: string | null): Promise<void> {
-	const response = await fetch(`/api/robots/${name}`, {
+	const response = await fetch(`https://over100robotics.cupsoft.ru/robots/${name}`, {
 		method: 'DELETE',
 		headers: {
 			'Content-Type': 'application/json'
@@ -85,7 +85,7 @@ export async function fetchCameraChanges(name: string, camera: string): Promise<
 		name,
 		camera
 	};
-	const response = await fetch('/api/robots/camera', {
+	const response = await fetch('https://over100robotics.cupsoft.ru/robots/camera', {
 		method: 'PUT',
 		headers: {
 			'Content-Type': 'application/json'
@@ -103,7 +103,7 @@ export async function fetchSpeedChanges(name: string, speed: number): Promise<vo
 		name,
 		speed
 	};
-	const response = await fetch('/api/robots/speed', {
+	const response = await fetch('https://over100robotics.cupsoft.ru/robots/speed', {
 		method: 'PUT',
 		headers: {
 			'Content-Type': 'application/json'
@@ -116,7 +116,7 @@ export async function fetchSpeedChanges(name: string, speed: number): Promise<vo
 }
 
 export async function sendDirectionData(dir: Array<string>) {
-	const response = await fetch('/api/', {
+	const response = await fetch('https://over100robotics.cupsoft.ru/', {
 		method: 'POST',
 		headers: {
 			'Content-Type': 'application/json'
