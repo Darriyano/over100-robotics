@@ -6,20 +6,19 @@
 	let cameraStatus: string = 'Connected';
 	let wheelsStatus: string = 'No signal';
 	let batteryStatus: string = 'No signal';
-
-	// eslint-disable-next-line no-use-before-define
-	let robot: any = {};
+	let currentID: number = 0;
 
 	onMount(async () => {
 		try {
 			const roboName: string | null = localStorage.getItem('current');
-			robot = await fetchRobotDataByName(roboName);
+			const robot = await fetchRobotDataByName(roboName);
 			if (robot.camera === 'port1' || robot.camera === 'port2') {
 				cameraStatus = 'disconnected';
 			}
 			if (robot.wheels) {
 				wheelsStatus = 'OK';
 			}
+			currentID = robot.id;
 			batteryStatus = robot.battery.toString();
 		} catch (error) {
 			console.error('Failed to fetch robot data:', error);
@@ -38,7 +37,7 @@
 	Robot diagnostics
 	<div class="diagnostic-id">
 		<div class="diagnostic-text">ID of the robot:</div>
-		<div class="robot-ID">{robot.id}</div>
+		<div class="robot-ID">{currentID}</div>
 	</div>
 	<div class="diagnostic-element">
 		<div class="diagnostic-text">Camera</div>
