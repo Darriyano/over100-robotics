@@ -115,4 +115,17 @@ export async function fetchSpeedChanges(name: string, speed: number): Promise<vo
     }
 }
 
+export async function sendDirectionData(dir: Array<string>) {
+    const response = await fetch('/api/', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(dir)
+    });
+    if (!response.ok) {
+        throw new Error('Response error in sendDirectionData');
+    }
+}
+
 export {type RobotData, type Names};

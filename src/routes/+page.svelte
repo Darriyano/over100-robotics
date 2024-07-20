@@ -47,9 +47,7 @@
             <option value={robot.name}>{robot.name}</option>
         {/each}
     </select>
-    <button class="connect-btn" on:click={sendData}>Connect
-        <!--        <a href="/diagnosis" style="text-decoration: none; color: #393b43" >Connect</a>-->
-    </button>
+    <button class="connect-btn" on:click={sendData}>Connect</button>
     <div class="add-txt">Has no robot?</div>
     <button class="add-btn">
         <a href="add-new-robot" style="text-decoration: none; color: #FFFFFF">Add</a>
