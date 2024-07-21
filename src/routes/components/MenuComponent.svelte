@@ -13,7 +13,6 @@
 
 <div class="dropdown-menu">
 	<div class="h1">Menu</div>
-
 	<div class="marg"><a href="/choose" on:click={closeMenu}>Your robots</a></div>
 	<nav></nav>
 	<div><a href="/map" on:click={closeMenu}>Robot's map</a></div>

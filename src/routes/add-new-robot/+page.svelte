@@ -7,11 +7,12 @@
 
     async function checkSubmission() {
         try {
-            if (robotName.includes('/')) {
+            if (robotName.includes('!')) {
                 throw new Error('Name should not include special symbols');
+            } else {
+                await addRobot(robotName);
+                await goto('/');
             }
-            await addRobot(robotName);
-            await goto('/');
         } catch (error) {
             alert(error);
         }

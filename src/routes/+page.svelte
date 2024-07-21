@@ -42,7 +42,7 @@
 </head>
 
 <div class="page-container">
-	Connect to the robot
+	Connect to the robot!
 	<select class="robotID" id="robotID" name="robotID" required on:change={handleSelectChange}>
 		<option value="Choose the robot">Choose the robot</option>
 		{#each robots as robot}
