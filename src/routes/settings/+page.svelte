@@ -86,7 +86,6 @@
 
     async function exiting() {
         const roboName: string | null = localStorage.getItem('current');
-        // await fetchDisconnect('Robot/not robot');
         await fetchDisconnect(roboName);
         localStorage.removeItem('current');
         showMenu.set(false);
