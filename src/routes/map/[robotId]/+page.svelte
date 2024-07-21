@@ -1,6 +1,6 @@
 <script lang="ts">
-	import '../../styles/map-styles.css';
-	import { sendDirectionData } from '../../api';
+	import '../../../styles/map-styles.css';
+	import { sendDirectionData } from '../../../api';
 
 	let dirs: Array<string> = [];
 

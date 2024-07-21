@@ -1,14 +1,14 @@
 <script lang="ts">
-	import '../../styles/settings.css';
+	import '../../../styles/settings.css';
 	import { onMount } from 'svelte';
 	import {
 		fetchCameraChanges,
 		fetchDisconnect,
 		fetchRobotDataByName,
 		fetchSpeedChanges
-	} from '../../api';
+	} from '../../../api';
 	import { goto } from '$app/navigation';
-	import { showMenu } from '../../stores';
+	import { showMenu } from '../../../stores';
 
 	let id: number = 0;
 	let speed: string = '1';

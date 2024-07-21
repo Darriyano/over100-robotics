@@ -1,7 +1,7 @@
 <script lang="ts">
-	import '../../styles/choose.css';
-	import { fetchRobotsData } from '../../api';
-	import type { RobotData } from '../../api';
+	import '../../../styles/choose.css'
+	import { fetchRobotsData } from '../../../api';
+	import type { RobotData } from '../../../api';
 
 	import { onMount } from 'svelte';
 
